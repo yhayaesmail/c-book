@@ -1,0 +1,4 @@
+<?php require 'views/layouts/header.php'; ?>
+<section class="page-hero compact"><h1>Manage Users</h1></section>
+<section class="section"><div class="table-card glass-card"><table class="cart-table"><tr><th>Name</th><th>Email</th><th>Role</th><th>Verified</th><th>Action</th></tr><?php foreach ($users as $u): ?><tr><td><?= e($u['name']) ?></td><td><?= e($u['email']) ?></td><td><?= e($u['role']) ?></td><td><?= $u['email_verified'] ? 'Yes' : 'No' ?></td><td><form method="POST"><input type="hidden" name="user_id" value="<?= $u['id'] ?>"><input type="hidden" name="verified" value="<?= $u['email_verified'] ? 0 : 1 ?>"><button class="btn btn-small"><?= $u['email_verified'] ? 'Disable' : 'Enable' ?></button></form></td></tr><?php endforeach; ?></table></div></section>
+<?php require 'views/layouts/footer.php'; ?>
